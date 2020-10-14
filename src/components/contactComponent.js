@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Breadcrumb, BreadcrumbItem, Button, Label, Col, Row } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import { Control, Errors, actions, Form} from 'react-redux-form'
+import { FadeTransform, Fade, Stagger } from 'react-animation-components'
 
 
 
@@ -21,10 +22,8 @@ class Contact extends Component{
     }
 
     handleSubmit(values) {
-        console.log('Current State is: ' + JSON.stringify(values));
-        alert('Current State is: ' + JSON.stringify(values));
+        this.props.postFeedback(values)
         this.props.resetFeedbackForm();
-        // event.preventDefault();
     }
 
     render(){
@@ -71,6 +70,11 @@ class Contact extends Component{
                     </div>
                     <div className="col-12 col-md-9">
                         <Form model="feedback" onSubmit={(values) => this.handleSubmit(values)}>
+                            <FadeTransform in transformProps={
+                                {
+                                    exitTransform: 'scale(0.5) translateY(-50%)'
+                                }
+                            }> 
                             <Row className="form-group">
                                 <Label htmlFor="firstname" md={2}>First Name</Label>
                                 <Col md={10}>
@@ -99,6 +103,12 @@ class Contact extends Component{
                                     />
                                 </Col>
                             </Row>
+                            </FadeTransform>
+                            <FadeTransform in transformProps={
+                                {
+                                    exitTransform: 'scale(0.5) translateY(-50%)'
+                                }
+                            }> 
                             <Row className="form-group">
                                 <Label htmlFor="lastname" md={2}>Last Name</Label>
                                 <Col md={10}>
@@ -127,6 +137,12 @@ class Contact extends Component{
                                     />
                                 </Col>
                             </Row>
+                            </FadeTransform>
+                            <FadeTransform in transformProps={
+                                {
+                                    exitTransform: 'scale(0.5) translateY(-50%)'
+                                }
+                            }> 
                             <Row className="form-group">
                                 <Label htmlFor="telnum" md={2}>Contact Tel.</Label>
                                 <Col md={10}>
@@ -157,6 +173,12 @@ class Contact extends Component{
                                     />
                                 </Col>
                             </Row>
+                            </FadeTransform>
+                            <FadeTransform in transformProps={
+                                {
+                                    exitTransform: 'scale(0.5) translateY(-50%)'
+                                }
+                            }> 
                             <Row className="form-group">
                                 <Label htmlFor="email" md={2}>Email</Label>
                                 <Col md={10}>
@@ -183,6 +205,12 @@ class Contact extends Component{
                                     />
                                 </Col>
                             </Row>
+                            </FadeTransform>
+                            <FadeTransform in transformProps={
+                                {
+                                    exitTransform: 'scale(0.5) translateY(-50%)'
+                                }
+                            }> 
                             <Row className="form-group">
                                 <Col md={{size: 6, offset: 2}}>
                                     <div className="form-check">
@@ -204,6 +232,12 @@ class Contact extends Component{
                                     </Control.select>
                                 </Col>
                             </Row>
+                            </FadeTransform>
+                            <FadeTransform in transformProps={
+                                {
+                                    exitTransform: 'scale(0.5) translateY(-50%)'
+                                }
+                            }> 
                             <Row className="form-group">
                                 <Label htmlFor="message" md={2}>Feedback</Label>
                                 <Col md={10}>
@@ -211,6 +245,7 @@ class Contact extends Component{
                                     />
                                 </Col>
                             </Row>
+                            </FadeTransform>
                             <Row className="form-group">
                                 <Col md={{size: 10, offset:2}}>
                                     <Button type="submit" color="primary">
